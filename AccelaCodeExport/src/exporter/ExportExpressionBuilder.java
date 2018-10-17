@@ -50,7 +50,7 @@ public class ExportExpressionBuilder implements Exporter {
 					+ "                        ,eb.R1_CHCKBOX_CODE" 
 					+ "	        	from REXPRESSION eb"
 					+ "             where eb.SERV_PROV_CODE = '" + agency +"'"
-					+ "             order by eb.SERV_PROV_CODE, eb.EXPRESSION_NAME;";
+					+ "             order by eb.SERV_PROV_CODE, eb.EXPRESSION_NAME";
 
 			fileStmt = con.createStatement();
 			rsFile = fileStmt.executeQuery(fileQuery);
