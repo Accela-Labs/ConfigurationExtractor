@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Properties;
 
 import Util.Enviroments;
 import exporter.ExportASIDDconfig;
@@ -35,9 +36,9 @@ import exporter.Exporter;
  */
 public class Main {  //TODO: update these three lines with your local info.
 	public static final String reposLocation = "C:/localFolder";
-	public static final String user = "DatabaseUser";
-	public static final String password = "UsersPassword";
-	public static final String agency = "TargetAgency";
+	public static final String user = "user1";
+	public static final String password = "user1";
+	public static final String agency = "ARLINGTONCO";
 	public static final String repoadd = "";
 
 	/**
@@ -83,6 +84,10 @@ public class Main {  //TODO: update these three lines with your local info.
 
 		for (Enviroments e : Enviroments.values()) {
 			try {
+				Properties props = new Properties();
+				props.put("user","user1");
+				props.put("password","user1");
+				//Connection con = DriverManager.getConnection(e.toString(),props);
 				Connection con = DriverManager.getConnection(e.toString(), user, password);
 
 				for (Exporter ex : exporters) {
