@@ -26,13 +26,15 @@ public class ExportScript implements Exporter {
 		String fileString = "";
 
 		try {
+			//TODO JJ: this has to be redone to go without ChARINDEX
+			// NOTE JJ: not verified. see doc/queryValidateionsforextractor.sql --#1
 			String fileQuery = "select s.SERV_PROV_CODE ,s.SCRIPT_CODE ,s.SCRIPT_TEXT"
 					+ " from REVT_AGENCY_SCRIPT s"
 					+ " where s.SERV_PROV_CODE = '" + agency + "'"
 					+ " substring(s.SCRIPT_CODE, 0, CHARINDEX(':', s.SCRIPT_TITLE))"
 					+ " in (select r.VALUE_DESC from RBIZDOMAIN_VALUE r"
 					+ " where r.BIZDOMAIN = 'EMSE_VARIABLE_BRANCH_PREFIX')"
-					+ " or CHARINDEX(':', s.SCRIPT_TITLE) > 0;";
+					+ " or CHARINDEX(':', s.SCRIPT_TITLE) > 0";  
 
 			fileStmt = con.createStatement();
 			rsFile = fileStmt.executeQuery(fileQuery);

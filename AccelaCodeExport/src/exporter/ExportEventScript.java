@@ -43,10 +43,11 @@ public class ExportEventScript implements Exporter {
 		String fileString = "";
 
 		try {
+			// NOTE JJ: verified. see doc/queryValidateionsforextractor.sql --#6
 			String fileQuery = "select distinct es.SCRIPT_CODE ,es.SERV_PROV_CODE"
 					+ "	        	from REVT_AGENCY_SCRIPT es"
 					+ "             where es.SERV_PROV_CODE = '" + agency + "'"
-					+ "             order by es.SERV_PROV_CODE, es.SCRIPT_CODE;";
+					+ "             order by es.SERV_PROV_CODE, es.SCRIPT_CODE";
 
 			fileStmt = con.createStatement();
 			rsFile = fileStmt.executeQuery(fileQuery);
@@ -56,9 +57,11 @@ public class ExportEventScript implements Exporter {
 				fileName = rsFile.getString(1);
 				agency = rsFile.getString(2);
 
-				String codeQuery = "select es.SCRIPT_TEXT" + "				from REVT_AGENCY_SCRIPT es"
+				// NOTE JJ: verified. see doc/queryValidateionsforextractor.sql --#7
+				String codeQuery = "select es.SCRIPT_TEXT"
+						+ "				from REVT_AGENCY_SCRIPT es"
 						+ "             where es.SERV_PROV_CODE = '" + agency + "'"
-						+ "                 and es.SCRIPT_CODE = '" + fileName + "';";
+						+ "                 and es.SCRIPT_CODE = '" + fileName + "'";
 
 				if (fileName != null) {
 					fileName = AccelaExportUtils.fixStringForFileName(fileName, true);

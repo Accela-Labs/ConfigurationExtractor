@@ -45,6 +45,7 @@ public class ExportExpressionBuilder implements Exporter {
 		String fileString = "";
 
 		try {
+			// NOTE JJ: verified. see doc/queryValidateionsforextractor.sql --#4
 			String fileQuery = "select distinct eb.EXPRESSION_NAME"
 					+ "                        ,eb.SERV_PROV_CODE"
 					+ "                        ,eb.R1_CHCKBOX_CODE" 
@@ -68,7 +69,9 @@ public class ExportExpressionBuilder implements Exporter {
 					obj = obj.toUpperCase() + "/";
 				}
 
-				String codeQuery = "select eb.SCRIPT_TEXT" + "				from REXPRESSION eb"
+				// NOTE JJ: verified. see doc/queryValidateionsforextractor.sql --#5
+				String codeQuery = "select eb.SCRIPT_TEXT"
+						+ "				from REXPRESSION eb"
 						+ "             where eb.SERV_PROV_CODE = '" + agency + "'"
 						+ "                 and eb.EXPRESSION_NAME = '" + fileName + "'";
 

@@ -44,11 +44,12 @@ public class ExportMasterScripts implements Exporter {
 		String fileString = "";
 
 		try {
+			// NOTE JJ: verified. see doc/queryValidateionsforextractor.sql --#2
 			String fileQuery = "select distinct ms.MASTER_SCRIPT_NAME"
 					+ " ,ms.SERV_PROV_CODE"
 					+ "	from REVT_MASTER_SCRIPT ms"
-					+ " where a.SERV_PROF_CODE = '" + agency + "'"
-					+ " order by ms.SERV_PROV_CODE, ms.MASTER_SCRIPT_NAME;";
+					+ " where ms.SERV_PROV_CODE = '" + agency + "'"
+					+ " order by ms.SERV_PROV_CODE, ms.MASTER_SCRIPT_NAME";
 
 			fileStmt = con.createStatement();
 			rsFile = fileStmt.executeQuery(fileQuery);
@@ -58,13 +59,14 @@ public class ExportMasterScripts implements Exporter {
 				fileName = rsFile.getString(1);
 				agency = rsFile.getString(2);
 
+				// NOTE JJ: verified. see doc/queryValidatonsforextractor.sql --#3
 				String codeQuery = "select ms.MASTER_SCRIPT_TEXT"
 						+ " from REVT_MASTER_SCRIPT ms"
 						+ " where ms.SERV_PROV_CODE = '" + agency + "'"
 						+ " and ms.MASTER_SCRIPT_VERSION = (select max(s.MASTER_SCRIPT_VERSION)"
 						+ "	from REVT_MASTER_SCRIPT s"
 						+ "	where s.MASTER_SCRIPT_NAME = ms.MASTER_SCRIPT_NAME)"
-						+ " and ms.MASTER_SCRIPT_NAME = '" + fileName + "';";
+						+ " and ms.MASTER_SCRIPT_NAME = '" + fileName + "'";
 
 				if (fileName != null) {
 					fileName = AccelaExportUtils.fixStringForFileName(fileName, true);
