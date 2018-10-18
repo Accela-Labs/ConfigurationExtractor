@@ -2,10 +2,10 @@
 select s.SERV_PROV_CODE ,s.SCRIPT_CODE ,s.SCRIPT_TEXT
 					from REVT_AGENCY_SCRIPT s
 					where s.SERV_PROV_CODE = 'agency' 
-                    and substring(s.SCRIPT_CODE, 0, CHARINDEX(':', s.SCRIPT_TITLE))
+                    and substr(s.SCRIPT_CODE, 0, INSTR(':', s.SCRIPT_TITLE))
 					in (select r.VALUE_DESC from RBIZDOMAIN_VALUE r
 					where r.BIZDOMAIN = 'EMSE_VARIABLE_BRANCH_PREFIX')
-					or CHARINDEX(':', s.SCRIPT_TITLE) > 0;
+					or INSTR(':', s.SCRIPT_TITLE) > 0;
                     
 --#2
 select distinct ms.MASTER_SCRIPT_NAME
