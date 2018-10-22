@@ -66,8 +66,8 @@ public class Main {  //TODO: update these three lines with your local info.
 
 		//NOTE: ms, eb, & agencyscripts are the main 3 for emeetool setup
 		ArrayList<Exporter> exporters = new ArrayList<>();
-//		exporters.add(es);
-//		exporters.add(ms);
+		exporters.add(es);
+		exporters.add(ms);
 		exporters.add(eb);
 //		exporters.add(rc);
 //		exporters.add(fs);
@@ -80,7 +80,7 @@ public class Main {  //TODO: update these three lines with your local info.
 //		exporters.add(ssd);
 //		exporters.add(ss);
 // 		exporters.add(ahr);
-//		exporters.add(agencyscripts);
+		exporters.add(agencyscripts);
 
 		for (Enviroments e : Enviroments.values()) {
 			try {
