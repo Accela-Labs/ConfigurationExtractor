@@ -48,20 +48,20 @@ public class Main {  //TODO: update these three lines with your local info.
 	public static void main(String[] args) throws FileNotFoundException {
 //		ExportStandardChoiceEMSE scemse = new ExportStandardChoiceEMSE(); // Not used anymore
 		ExportExpressionBuilder eb = new ExportExpressionBuilder();
-//		ExportEventScript es = new ExportEventScript();
+		ExportEventScript es = new ExportEventScript();
 		ExportMasterScripts ms = new ExportMasterScripts();
-		ExportReportConfigStructure rc = new ExportReportConfigStructure();
-		ExportFeeScheduleConfig fs = new ExportFeeScheduleConfig();
-		ExportConditionConfig cc = new ExportConditionConfig();
-		ExportConditionConfig2 sc = new ExportConditionConfig2();
+		// ExportReportConfigStructure rc = new ExportReportConfigStructure();
+		// ExportFeeScheduleConfig fs = new ExportFeeScheduleConfig();
+		// ExportConditionConfig cc = new ExportConditionConfig();
+		// ExportConditionConfig2 sc = new ExportConditionConfig2();
 		// ExportDBStoredProcedures db = new ExportDBStoredProcedures(); //Doesn't work
-		ExportASIconfig as = new ExportASIconfig();
-		ExportASIDDconfig asdd = new ExportASIDDconfig();
-		ExportASITconfig at = new ExportASITconfig();
-		ExportASITDDconfig atdd = new ExportASITDDconfig();
-		ExportSharedDropDown ssd = new ExportSharedDropDown();
-		ExportStandardChoiceSystemSwitch ss = new ExportStandardChoiceSystemSwitch();
-		ExportAdHocReport ahr = new ExportAdHocReport();
+		// ExportASIconfig as = new ExportASIconfig();
+		// ExportASIDDconfig asdd = new ExportASIDDconfig();
+		// ExportASITconfig at = new ExportASITconfig();
+		// ExportASITDDconfig atdd = new ExportASITDDconfig();
+		// ExportSharedDropDown ssd = new ExportSharedDropDown();
+		// ExportStandardChoiceSystemSwitch ss = new ExportStandardChoiceSystemSwitch();
+		// ExportAdHocReport ahr = new ExportAdHocReport();
 		ExportScript agencyscripts = new ExportScript();
 
 		//NOTE: ms, eb, & agencyscripts are the main 3 for emeetool setup
